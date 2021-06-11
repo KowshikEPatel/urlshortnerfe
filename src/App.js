@@ -5,6 +5,7 @@ import {useState} from 'react'
 
 import Topbar from './Components/Topbar'
 import {UserContext} from './Contexts/UserContext'
+import Landingpage from './Components/Landingpage'
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   return (<>
           <UserContext.Provider value={{isLoggedIn,setIsLoggedIn}}>
           <Topbar/>
+          <Landingpage/>
           </UserContext.Provider>
   </>
   );

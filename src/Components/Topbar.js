@@ -2,16 +2,17 @@ import {useContext} from 'react'
 
 import {UserContext} from '../Contexts/UserContext'
 
+import '../App.css'
+
 //style={{backgroundColor: "#bcbcff",fontFamily:'serif'}}
 export default function Topbar(){
-    let test = useContext(UserContext)
-    return <nav className='navbar  navbar-expand-lg navbar-light bg-light' >
-        <button className='navbar navbar-brand btn' >micro URL</button>
-        {test && <ul style={{}}>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+    let {isLoggedIn} = useContext(UserContext)
+    return <nav className='navbar  navbar-expand-lg' >
+        <button className='navbar navbar-brand btn' style={{color:'#bcf8ec',fontSize:'2rem'}}>microURL</button>
+        {isLoggedIn && <ul className='nav justify-content-end'>
+            <li className='nav-item'><button className='btn nav-link' style={{margin:"0px"}}>Home</button></li>
+            <li className='nav-item'><button className='btn nav-link' style={{margin:"0px"}}>All URLs</button></li>
+            <li className='nav-item'><button className='btn nav-link' style={{margin:"0px"}}>User</button></li>
         </ul>}
     </nav>
 }
