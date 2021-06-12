@@ -53,7 +53,7 @@ export default function NewUser(){
         <input type="password" className="form-control" id="inputPassword"  placeholder="Enter Password" onChange={handlePWchange}/>
         <label htmlFor="inputCPassword"><b>Confirm Password</b></label>
         <input type="password" className="form-control" id="inputCPassword"  placeholder="Enter Confirm Password" onChange={handleCPWchange}/>
-        <small style={{display:disablestate}}>Password and confirm password do not match</small>
+        
         
         <div className='row'>
             <div className='col-6'>
