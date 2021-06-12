@@ -35,7 +35,7 @@ export default function NewUser(){
             headers:{
                 'Content-type':'application/json'
             },
-            body:JSON.stringify({'username':username,'password':password,'firstname':firstname,'lastname':lastname})
+            body:JSON.stringify({'username':username,'password':password,'firstname':firstname,'lastname':lastname,'cpw':confirmpassword})
         })
     }
 
