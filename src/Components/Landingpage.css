@@ -1,0 +1,7 @@
+.bg-image {
+    width: 500px;
+    height: 500px;
+    background-image: url("./landingpage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
