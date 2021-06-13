@@ -29,13 +29,14 @@ export default function NewUser(){
 
 
     const handleOnSubmit = ()=>{
-        
+        let data = {'username':username,'password':password,'firstname':firstname,'lastname':lastname,'cpw':confirmpassword}
+        console.log(data)
         fetch('https://kp-microurl.herokuapp.com/newuser',{
             method:'POST',
             headers:{
                 'Content-type':'application/json'
             },
-            body:JSON.stringify({'username':username,'password':password,'firstname':firstname,'lastname':lastname,'cpw':confirmpassword})
+            body:JSON.stringify(data)
         })
     }
 
