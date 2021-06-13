@@ -8,6 +8,7 @@ import Landingpage from './Components/Landingpage'
 import LandingPagepw from './Components/LandingPagepw'
 import Footer from './Components/Footer'
 import NewUser from './Components/NewUser'
+import UserValidate from './Components/UserValidate'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -22,6 +23,9 @@ function App() {
                 </Route>
                 <Route exact path="/newuser">
                     <NewUser/>
+                </Route>
+                <Route exact path="/uservalidate">
+                    <UserValidate/>
                 </Route>
               </Switch>
               <Footer/>

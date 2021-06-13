@@ -57,7 +57,6 @@ export default function NewUser(){
         
         <div className='row'>
             <div className='col-6'>
-                
                 <Link to='/uservalidate'><button className='btn btn-light mt-4' style={{width:'100%'}} onClick={handleOnSubmit}>Submit</button></Link>
             </div>
         </div>
