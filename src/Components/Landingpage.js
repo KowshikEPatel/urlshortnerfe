@@ -44,7 +44,7 @@ export default function Landingpage() {
                         </div>
                         <div className='col-6'>
                             <button className='btn btn-primary mt-3' onClick={handleSubmit}>Submit</button>
-                            <Link to='/newuser'><button type="button" class="btn btn-link"><small>New User? Register</small></button></Link>
+                            <Link to='/newuser'><button type="button" className="btn btn-link"><small>New User? Register</small></button></Link>
                         </div>
                     </div>
                     

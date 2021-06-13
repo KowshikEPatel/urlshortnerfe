@@ -2,9 +2,9 @@
 
 export default function UserValidate(){
     
-    return <div class="jumbotron">
-    <h1 class="display-4">Thank you for signing up</h1>
-    <p class="lead">Activate your account by using the link sent to your email </p>
-    <hr class="my-4"></hr>
+    return <div className="jumbotron">
+    <h1 className="display-4">Thank you for signing up</h1>
+    <p className="lead">Activate your account by using the link sent to your email </p>
+    <hr className="my-4"></hr>
     </div>
 }

@@ -11,24 +11,25 @@ export default function NewUser(){
     
 
     const handleUNchange = (e)=>{
-        setUsername(e.target.vale)
+        setUsername(e.target.value)
     }
     const handlePWchange = (e)=>{
-        setPassword(e.target.vale)
+        setPassword(e.target.value)
     }
     const handleCPWchange = (e)=>{
-        console.log(e.target.value)
-        setConfirmPassword(e.target.vale)
+        
+        setConfirmPassword(e.target.value)
     }
     const handleFNchange = (e)=>{
-        setFirstname(e.target.vale)
+        setFirstname(e.target.value)
     }
     const handleLNchange = (e)=>{
-        setLastname(e.target.vale)
+        setLastname(e.target.value)
     }
 
 
     const handleOnSubmit = ()=>{
+        console.log(username)
         let data = {'username':username,'password':password,'firstname':firstname,'lastname':lastname,'cpw':confirmpassword}
         console.log(data)
         fetch('https://kp-microurl.herokuapp.com/newuser',{
