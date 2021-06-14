@@ -11,6 +11,7 @@ export default function LandingPagepw(){
     }
 
     const handleClick= ()=>{
+        console.log({"username":username})
         fetch(`https://kp-microurl.herokuapp.com/forgotpw`,{
         method:'POST',
         body:JSON.stringify({"username":username})
@@ -24,8 +25,8 @@ export default function LandingPagepw(){
     }
     return  <>
         <div className="card" style={{width:"20rem",margin:"70px 0 300px 400px"}}>
-             <div class="card-body">
-                     <h4 class="card-title">Reset your password</h4>
+             <div className="card-body">
+                     <h4 className="card-title">Reset your password</h4>
                      
                    <h5>Username</h5>
                    <input type="text" width="100px" className="form-control" style={{marginBottom:"15px"}} onChange={handleChangeUser}  value={username}></input>
