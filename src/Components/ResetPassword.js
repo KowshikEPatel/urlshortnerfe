@@ -26,7 +26,7 @@ export default function ResetPassword(){
 
     const sendNewPassword=()=>{
 
-        fetch(`https://kp-passwordresetter.herokuapp.com/resetpassword/${str}`,{
+        fetch(`https://kp-microurl.herokuapp.com/resetpassword/${str}`,{
             method:'POST',
             headers: {
                 'Content-Type': 'application/json'

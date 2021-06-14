@@ -1,24 +1,8 @@
 import {useState} from 'react'
 /*import {Link} from 'react-router-dom'*/
 
-export default function LandingPage(){
-
-    /*
-    const [passwords,setPasswords] = useState("")
-    const [resetRequested,setResetRequested] = useState(false)
-
-    
-
-    function handleChangePassword(event){
-            setPasswords(event.target.value)
-    }
-    
-    function handleChangeResetRequested(event){
-        setResetRequested(event.target.value)
-    }
-
-    const cred = {username,passwords,resetRequested}*/
-    
+export default function LandingPagepw(){
+   
     const [username,setUsername] = useState("") 
     const [disablebutton,setDisable] = useState("")
     const [displayparra,setDisplaypara] = useState("none")
@@ -26,9 +10,8 @@ export default function LandingPage(){
         setUsername(event.target.value)
     }
 
-    
     const handleClick= ()=>{
-        fetch(`https://kp-passwordresetter.herokuapp.com/forgotpw`,{
+        fetch(`https://kp-microurl.herokuapp.com/forgotpw`,{
         method:'POST',
         body:JSON.stringify({"user_name":username})
         })
