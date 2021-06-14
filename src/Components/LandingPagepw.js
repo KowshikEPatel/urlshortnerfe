@@ -13,7 +13,7 @@ export default function LandingPagepw(){
     const handleClick= ()=>{
         fetch(`https://kp-microurl.herokuapp.com/forgotpw`,{
         method:'POST',
-        body:JSON.stringify({"user_name":username})
+        body:JSON.stringify({"username":username})
         })
         .then(response=>response.json())
         .then(data=>{
