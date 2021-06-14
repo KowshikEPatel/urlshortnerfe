@@ -10,6 +10,7 @@ import Footer from './Components/Footer'
 import NewUser from './Components/NewUser'
 import UserValidate from './Components/UserValidate'
 import UserActivated from './Components/UserActivated'
+import ResetPassword from './Components/ResetPassword'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -30,6 +31,9 @@ function App() {
                 </Route>
                 <Route exact path="/useractivated">
                     <UserActivated/>
+                </Route>
+                <Route path="/resetpassword/:str">
+                    <ResetPassword />
                 </Route>
               </Switch>
               <Footer/>

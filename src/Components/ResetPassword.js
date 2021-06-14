@@ -1,6 +1,6 @@
 
 import {useParams} from 'react-router-dom'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 
 export default function ResetPassword(){
@@ -18,11 +18,11 @@ export default function ResetPassword(){
     const handleChangeConfirmPassword = (e)=>{
         setConfirmpassword(e.target.value)
     }
-    const comparepasswords=()=>{
-        if(password===confirmPassword){
+    useEffect(()=>{
+        if(password!==confirmPassword){
             setDisplaypara("block")
         }
-    }
+    },[password,confirmPassword])
 
     const sendNewPassword=()=>{
 
@@ -43,7 +43,7 @@ export default function ResetPassword(){
           <h5>Password</h5>
           <input type="password" width="100px" className="form-control" style={{marginBottom:"15px"}}  onChange={handleChangePassword} value={password}></input>
           <h5>Confirm Password</h5>
-          <input type="password" width="100px" className="form-control" style={{marginBottom:"15px"}} onPointerOut={comparepasswords} onChange={handleChangeConfirmPassword} value={confirmPassword}></input>
+          <input type="password" width="100px" className="form-control" style={{marginBottom:"15px"}}  onChange={handleChangeConfirmPassword} value={confirmPassword}></input>
                <div style={{textAlign:"right"}}>
                <button className="btn btn-secondary" onClick={sendNewPassword}>Change Password</button>
               <p style={{display:displaypara}}>Passwords do not match</p>
