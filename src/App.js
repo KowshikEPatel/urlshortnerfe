@@ -11,6 +11,7 @@ import NewUser from './Components/NewUser'
 import UserValidate from './Components/UserValidate'
 import UserActivated from './Components/UserActivated'
 import ResetPassword from './Components/ResetPassword'
+import Home from './Components/Home'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -36,6 +37,9 @@ function App() {
                 </Route>
                 <Route path="/resetpassword/:str">
                     <ResetPassword />
+                </Route>
+                <Route path="/home">
+                    <Home />
                 </Route>
               </Switch>
               <Footer/>
