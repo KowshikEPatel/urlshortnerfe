@@ -5,6 +5,7 @@ import './Landingpage.css'
 export default function Landingpage() {
     const [username,setUsername] = React.useState('')
     const [password,setPassword] = React.useState('')
+    const [message,setMessage] = React.useState({text:'',display:'none'})
     const handleSubmit = ()=>{
         fetch('https://kp-microurl.herokuapp.com/',{
             method:'POST',
@@ -13,6 +14,11 @@ export default function Landingpage() {
             },
             body:JSON.stringify({'username':username,'password':password})
         })
+        .then(response=>response.json())
+        .then(response=>{
+            setMessage({text:response['message'],display:'block'})
+        })
+        .catch(err=>{console.log(err)})
     }
     
     const handleUsername = (e) =>{
@@ -37,7 +43,7 @@ export default function Landingpage() {
                     <input type="email" className="form-control" id="inputEmail"  placeholder="Enter Email" onChange={handleUsername}/>
                     <label htmlFor="inputPassword"><b>Password</b></label>
                     <input type="password" className="form-control" id="inputPassword"  placeholder="Enter Password" onChange={handlePassword}/>
-                    
+                    <p style={{display:message.display}}>{message.text}</p>
                     <div className='row d-flex justify-content-between'>
                         <div className='col-6'>
                             <small><div style={{color:'blue',marginTop:'10px'}}><Link to='/forgotpw'>Forgot Password?</Link></div></small>

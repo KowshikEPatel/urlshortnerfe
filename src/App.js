@@ -19,7 +19,9 @@ function App() {
             <Router>
             <Topbar/>
               <Switch>
-                <Route exact path='/'><Landingpage/></Route>
+                <Route exact path='/'>
+                    <Landingpage/>
+                </Route>
                 <Route exact path="/forgotpw">
                     <LandingPagepw/>
                 </Route>
