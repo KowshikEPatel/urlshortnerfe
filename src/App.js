@@ -1,6 +1,6 @@
 import './App.css';
 import {useState} from 'react'
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
+import { BrowserRouter as Router,Switch,Route,Redirect } from 'react-router-dom';
 
 import Topbar from './Components/Topbar'
 import {UserContext} from './Contexts/UserContext'
@@ -15,13 +15,14 @@ import Home from './Components/Home'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [loggedUser,setLoggedUser] = useState({})
   return (<>
-          <UserContext.Provider value={{isLoggedIn,setIsLoggedIn}}>
+          <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,loggedUser,setLoggedUser}}>
             <Router>
             <Topbar/>
               <Switch>
-                <Route exact path='/'>
-                    <Landingpage/>
+                <Route exact path="/">
+                    {isLoggedIn ? <Redirect to="/home" /> : <Landingpage />}
                 </Route>
                 <Route exact path="/forgotpw">
                     <LandingPagepw/>

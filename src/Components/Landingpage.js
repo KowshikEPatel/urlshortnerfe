@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import {Link} from 'react-router-dom' 
 import './Landingpage.css'
+import {UserContext} from '../Contexts/UserContext'
+
 
 export default function Landingpage() {
     const [username,setUsername] = React.useState('')
     const [password,setPassword] = React.useState('')
     const [message,setMessage] = React.useState({text:'',display:'none'})
+    const data = useContext(UserContext)
     const handleSubmit = ()=>{
         fetch('https://kp-microurl.herokuapp.com/',{
             method:'POST',
@@ -14,10 +17,11 @@ export default function Landingpage() {
             },
             body:JSON.stringify({'username':username,'password':password})
         })
-        .then(response=>response.json())
-        .then(response=>{
+        .then(response=>console.log(response.status))
+       /* .then(response=>{
+
             setMessage({text:response['message'],display:'block'})
-        })
+        })*/
         .catch(err=>{console.log(err)})
     }
     
