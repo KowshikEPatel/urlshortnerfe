@@ -17,11 +17,15 @@ export default function Landingpage() {
             },
             body:JSON.stringify({'username':username,'password':password})
         })
-        .then(response=>console.log(response.status))
-       /* .then(response=>{
+        .then(response=>{
+            console.log(response.status)
+            console.log(data.isLoggedIn)
+            return response.json()
+        })
+        .then(response=>{
 
             setMessage({text:response['message'],display:'block'})
-        })*/
+        })
         .catch(err=>{console.log(err)})
     }
     
