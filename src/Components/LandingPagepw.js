@@ -14,6 +14,10 @@ export default function LandingPagepw(){
         console.log({"username":username})
         fetch(`https://kp-microurl.herokuapp.com/forgotpw`,{
         method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body:JSON.stringify({"username":username})
         })
         .then(response=>response.json())
