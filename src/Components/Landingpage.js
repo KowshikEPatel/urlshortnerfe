@@ -23,8 +23,13 @@ export default function Landingpage() {
             return response.json()
         })
         .then(response=>{
-
+            if(response.status=200){
+                data.setLoggedUser(response)
+                data.setIsLoggedIn(true)
+            }
+            else{
             setMessage({text:response['message'],display:'block'})
+            }
         })
         .catch(err=>{console.log(err)})
     }
