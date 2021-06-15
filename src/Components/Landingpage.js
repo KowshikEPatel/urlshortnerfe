@@ -23,7 +23,7 @@ export default function Landingpage() {
             return response.json()
         })
         .then(response=>{
-            if(response.status=200){
+            if(response.status===200){
                 data.setLoggedUser(response)
                 data.setIsLoggedIn(true)
             }
