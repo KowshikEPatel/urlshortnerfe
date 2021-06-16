@@ -7,7 +7,7 @@ import {UserContext} from '../Contexts/UserContext'
 export default function Landingpage() {
     const [username,setUsername] = React.useState('')
     const [password,setPassword] = React.useState('')
-    const [message,setMessage] = React.useState({text:'',display:'none'})
+    const [message,setMessage] = React.useState({state:false,text:'',display:'none'})
     const data = useContext(UserContext)
     const handleSubmit = ()=>{
         fetch('https://kp-microurl.herokuapp.com/',{
@@ -17,19 +17,16 @@ export default function Landingpage() {
             },
             body:JSON.stringify({'username':username,'password':password})
         })
+        .then(response=>response.json())
         .then(response=>{
-            console.log(response.status)
-            console.log(data.isLoggedIn)
-            return response.json()
-        })
-        .then(response=>{
-            if(response.status===200){
+            console.log(response)
+            if(response.state){
                 data.setLoggedUser(response)
                 data.setIsLoggedIn(true)
             }
             else{
-            setMessage({text:response['message'],display:'block'})
-            }
+                setMessage({state:false,text:response.message,display:'block'})
+            } 
         })
         .catch(err=>{console.log(err)})
     }
