@@ -1,10 +1,12 @@
 
-import React from 'react'
+import React,{useContext} from 'react'
+import { UserContext } from '../Contexts/UserContext'
 
 export default function Home() {
+    const data = useContext(UserContext)
     return (
         <div>
-            Home
+           Hi {data.loggedUser.fullname}
         </div>
     )
 }
