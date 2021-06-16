@@ -21,7 +21,7 @@ export default function Landingpage() {
         .then(response=>{
             console.log(response)
             if(response.state){
-                data.setLoggedUser(response)
+                data.setLoggedUser(response.user)
                 data.setIsLoggedIn(true)
             }
             else{
