@@ -5,27 +5,31 @@ import { UserContext } from '../Contexts/UserContext'
 export default function Home() {
     const data = useContext(UserContext)
     const [url,setUrl] = useState('') 
-    const [showUrl,setShowUrl] = useState({display:"none","text":''})
+    const [showUrl,setShowUrl] = useState({"display":"none","text":''})
     const handleUrl = (e) => {
         setUrl(e.target.value)
     }
 
     const handleSubmit = ()=>{
+        let urlInfo = {
+                        'url':url,
+                        '_id':data.loggedUser['_id']
+                     }        
         fetch('https://kp-microurl.herokuapp.com/addurl',{
             method:'POST',
             headers:{
-                'Content-type':'application/json'
+                'Content-Type': 'application/json',
             },
-            body:{'url':url,
-                  '_id':data.loggedUser['_id']
-                 }
+            body:JSON.stringify(urlInfo),
         })
         .then(response=>response.json())
         .then(response=>{
             console.log(response)
-            setShowUrl({display:'block','text':response['url']})
+            setShowUrl({"display":'block','text':response['url']})
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{console.log(err)}) 
+           // 
+        
     }
 
     return <div style={{backgroundColor:'#a7fff0'}}>
@@ -36,7 +40,7 @@ export default function Home() {
                     <label htmlFor="inputURL"><h4><i className="fa fa-link" aria-hidden="true"></i>Your Long URL</h4></label>
                     <input type="text" className="form-control" id="inputURL" onChange={handleUrl} />
                     <button className='btn mt-3' onClick={handleSubmit} style={{width:'20rem',backgroundColor:'#73c3ff'}} > Submit </button>
-                    <textarea className="form-control" style={{marginTop:'15px',display:showUrl.display}} id="exampleFormControlTextarea3" rows="1" value={showUrl.text} readOnly ></textarea>
+                    <p style={{marginTop:'15px',display:showUrl["display"],backgroundColor:'#e6e6e6',color:'#333' }} >{showUrl['text']}</p>
                 </div>
             </div>
         </div>
