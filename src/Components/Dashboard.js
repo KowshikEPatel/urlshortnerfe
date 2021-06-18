@@ -7,24 +7,6 @@ export default function Dashboard() {
     
     const contextData = useContext(UserContext)
 
-    useEffect(()=>{
-        let cData = contextData
-        fetch('https://kp-microurl.herokuapp.com/userdata',{
-            method: 'POST',
-            mode: 'cors',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({'_id':cData.loggedUser['_id']}),
-        })
-        .then(response=>response.json())
-        .then(response=>{
-            console.log(response)
-            cData.setLoggedUserUrls(response)
-        })
-        .catch(err=>console.log(err))
-    },[])
-
     return (
         <div className='container'>
             <div className='row'>
@@ -46,6 +28,9 @@ export default function Dashboard() {
             </div>
             <div className='row'>
                 <h5> Clicks <span className='badge badge-secondary'>4</span></h5>
+            </div>
+            <div className='row'>
+                <h5> {contextData.isLoggedIn} <span className='badge badge-secondary'>4</span></h5>
             </div>
 
         </div>

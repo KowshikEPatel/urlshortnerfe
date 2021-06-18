@@ -13,15 +13,15 @@ export default function UserData() {
 
     return (
         <div className='container'>
-            <div className='row'>
+            <div className='row'style={{margin:'30px',padding:'30px'}}>
                 <Link to='/'  onClick={handleClick}>Logout</Link>
-                <hr></hr>
+                <hr style={{backgroundColor:'#333'}}/>
             </div>
-            <div className='row'>
+            <div className='row' style={{margin:'30px',padding:'30px'}}>
                 <div className='col-md-6'>First Name</div>
                 <div className='col-md-6'>{contextData.loggedUser['firstName']}</div>
             </div>
-            <div className='row'>
+            <div className='row' style={{margin:'30px',padding:'30px'}}>
                 <div className='col-md-6'>Last Name</div>
                 <div className='col-md-6'>{contextData.loggedUser['lastName']}</div>
             </div>

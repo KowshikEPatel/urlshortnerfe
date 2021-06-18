@@ -29,6 +29,18 @@ export default function Landingpage() {
             } 
         })
         .catch(err=>{console.log(err)})
+        fetch('https://kp-microurl.herokuapp.com/userdata',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({'_id':data.loggedUser['_id']})
+        })
+        .then(response=>response.json())
+        .then(response=>{
+            console.log(response)
+            data.setLoggedUserUrls(response)
+        })
     }
     
     const handleUsername = (e) =>{
