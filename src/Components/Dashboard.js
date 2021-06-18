@@ -18,10 +18,10 @@ export default function Dashboard() {
         .then(response=>response.json())
         .then(response=>{
             console.log(response)
-            contextData.setLoggedUser(response)
+            contextData.setLoggedUserUrls(response)
         })
         .catch(err=>console.log(err))
-    },[])
+    },[contextData])
 
     return (
         <div className='container'>
