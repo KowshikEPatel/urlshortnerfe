@@ -8,20 +8,22 @@ export default function Dashboard() {
     const contextData = useContext(UserContext)
 
     useEffect(()=>{
+        let cData = contextData
         fetch('https://kp-microurl.herokuapp.com/userdata',{
-            method:'POST',
+            method: 'POST',
+            mode: 'cors',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type': 'application/json'
             },
-            body:JSON.stringify({'_id':contextData.loggedUser['_id']})
+            body: JSON.stringify({'_id':cData.loggedUser['_id']}),
         })
         .then(response=>response.json())
         .then(response=>{
             console.log(response)
-            contextData.setLoggedUserUrls(response)
+            cData.setLoggedUserUrls(response)
         })
         .catch(err=>console.log(err))
-    },[contextData])
+    },[])
 
     return (
         <div className='container'>
