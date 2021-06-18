@@ -20,7 +20,7 @@ function App() {
   const [loggedUser,setLoggedUser] = useState({})
   const [loggedUserUrls,setLoggedUserUrls] = useState({})
   return (<>
-          <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,loggedUser,setLoggedUser}}>
+          <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,loggedUser,setLoggedUser,loggedUserUrls,setLoggedUser}}>
             <Router>
             <Topbar/>
               <Switch>

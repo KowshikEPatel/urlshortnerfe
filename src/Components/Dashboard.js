@@ -16,7 +16,10 @@ export default function Dashboard() {
             body:JSON.stringify({'_id':contextData.loggedUser['_id']})
         })
         .then(response=>response.json())
-        .then(response=>console.log(response))
+        .then(response=>{
+            console.log(response)
+            contextData.setLoggedUser(response)
+        })
         .catch(err=>console.log(err))
     },[])
 
