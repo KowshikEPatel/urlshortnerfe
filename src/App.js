@@ -12,10 +12,13 @@ import UserValidate from './Components/UserValidate'
 import UserActivated from './Components/UserActivated'
 import ResetPassword from './Components/ResetPassword'
 import Home from './Components/Home'
+import Dashboard from './Components/Dashboard'
+import UserData from './Components/UserData'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loggedUser,setLoggedUser] = useState({})
+  const [loggedUserUrls,setLoggedUserUrls] = useState({})
   return (<>
           <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,loggedUser,setLoggedUser}}>
             <Router>
@@ -39,8 +42,14 @@ function App() {
                 <Route path="/resetpassword/:str">
                     <ResetPassword />
                 </Route>
-                <Route path="/home">
+                <Route exact path="/home">
                     <Home />
+                </Route>
+                <Route exact path="/dashboard">
+                    <Dashboard />
+                </Route>
+                <Route exact path="/userdata">
+                    <UserData />
                 </Route>
               </Switch>
               <Footer/>
