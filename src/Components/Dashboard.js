@@ -6,13 +6,22 @@ import { UserContext } from '../Contexts/UserContext'
 export default function Dashboard() {
     
     const contextData = useContext(UserContext)
-
+    const urlsAggre = contextData.loggedUserUrls
+    const chartData = {
+        labels:urlsAggre.map(e=>e['urlString'].slice(36)),
+        datasets:[
+            {
+                label:'Number of clicks'
+            }
+        ]
+    }
+    console.log(chartData.labels)
     return (
         <div className='container'>
             <div className='row'>
                 
                 <Line
-	                data={[1,2,3,4]}
+	                data={chartData}
 	                width={100}
 	                height={50}
 	                options={{ maintainAspectRatio: false }}

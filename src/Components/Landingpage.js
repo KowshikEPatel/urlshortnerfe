@@ -23,24 +23,13 @@ export default function Landingpage() {
             if(response.state){
                 data.setLoggedUser(response.user)
                 data.setIsLoggedIn(true)
+                data.setLoggedUserUrls(response.currentUrl)
             }
             else{
                 setMessage({state:false,text:response.message,display:'block'})
             } 
         })
         .catch(err=>{console.log(err)})
-        fetch('https://kp-microurl.herokuapp.com/userdata',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify({'_id':data.loggedUser['_id']})
-        })
-        .then(response=>response.json())
-        .then(response=>{
-            console.log(response)
-            data.setLoggedUserUrls(response)
-        })
     }
     
     const handleUsername = (e) =>{
