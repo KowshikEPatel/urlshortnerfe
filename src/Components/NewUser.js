@@ -45,7 +45,7 @@ export default function NewUser(){
     return <div className='card' style={{margin:'0px 0px 0px 400px',width:'30rem',padding:'40px',top:'30px' }}>
     <h3>New user registration</h3>
     <div className='form-group'>
-        <label htmlFor="inputUsername"><b>Username</b></label>
+        <label htmlFor="inputUsername"><b>Email</b></label>
         <input type="text" className="form-control" id="inputUsername" placeholder="Email (Username)" onChange={handleUNchange}/>
         <label htmlFor="inputFName"><b>First Name</b></label>
         <input type="email" className="form-control" id="inputFName"  placeholder="Enter First Name" onChange={handleFNchange}/>
