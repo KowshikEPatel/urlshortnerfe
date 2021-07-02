@@ -54,7 +54,7 @@ export default function Landingpage() {
                     <input type="email" className="form-control" id="inputEmail"  placeholder="Enter Email" onChange={handleUsername}/>
                     <label htmlFor="inputPassword"><b>Password</b></label>
                     <input type="password" className="form-control" id="inputPassword"  placeholder="Enter Password" onChange={handlePassword}/>
-                    <p style={{display:message.display}}>{message.text}</p>
+                    <p style={{display:message.display,color:'red'}}>{message.text}</p>
                     <div className='row d-flex justify-content-between'>
                         <div className='col-6'>
                             <small><div style={{color:'blue',marginTop:'10px'}}><Link to='/forgotpw'>Forgot Password?</Link></div></small>
