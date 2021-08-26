@@ -29,9 +29,9 @@ export default function NewUser(){
 
 
     const handleOnSubmit = ()=>{
-        console.log(username)
+        
         let data = {'username':username,'password':password,'firstname':firstname,'lastname':lastname,'cpw':confirmpassword}
-        console.log(data)
+        
         fetch('https://kp-microurl.herokuapp.com/newuser',{
             method:'POST',
             headers:{
@@ -55,8 +55,6 @@ export default function NewUser(){
         <input type="password" className="form-control" id="inputPassword"  placeholder="Enter Password" onChange={handlePWchange}/>
         <label htmlFor="inputCPassword"><b>Confirm Password</b></label>
         <input type="password" className="form-control" id="inputCPassword"  placeholder="Enter Confirm Password" onChange={handleCPWchange}/>
-        
-        
         <div className='row'>
             <div className='col-6'>
                 <Link to='/uservalidate'><button className='btn btn-light mt-4' style={{width:'100%'}} onClick={handleOnSubmit}>Submit</button></Link>
