@@ -15,12 +15,14 @@ import Home from './Components/Home'
 import Dashboard from './Components/Dashboard'
 import UserData from './Components/UserData'
 
+
 function App() {
+  const [isLoading,setIsLoading] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loggedUser,setLoggedUser] = useState({})
   const [loggedUserUrls,setLoggedUserUrls] = useState({})
   return (<>
-          <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,loggedUser,setLoggedUser,loggedUserUrls,setLoggedUserUrls}}>
+          <UserContext.Provider value={{isLoggedIn,setIsLoggedIn,loggedUser,setLoggedUser,loggedUserUrls,setLoggedUserUrls,isLoading,setIsLoading}}>
             <Router>
             <Topbar/>
               <Switch>
