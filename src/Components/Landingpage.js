@@ -32,9 +32,12 @@ export default function Landingpage() {
             }
             else{
                 setMessage({state:false,text:response.message,display:'block'})
+                data.setIsLoading(false)
             } 
         })
-        .catch(err=>{console.log(err)})
+        .catch(err=>{
+             console.log(err);
+             data.setIsLoading(false)})
     }
     
     const handleUsername = (e) =>{
